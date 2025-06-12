@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getx_mvvm/data/exceptions.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,6 +11,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(child: CircularProgressIndicator(),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         throw InternetException('Check your internet connection');
+        },
+        child: const Icon(Icons.arrow_forward),
+      ),
+    );
   }
 }
