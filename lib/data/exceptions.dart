@@ -1,3 +1,5 @@
+import 'package:http/http.dart';
+
 class AppException implements Exception {
   final  _message;
   final  _prefix;
@@ -17,4 +19,15 @@ class InternetException extends AppException {
 class ServerException extends AppException {
   ServerException([String? message])
       : super(message, 'Server Error: ');
+}
+
+class RequestTimeoutException extends AppException{
+  RequestTimeoutException([String? messege]):super(messege , 'Request timeout');
+}
+
+class InvalidUrlException extends AppException{
+  InvalidUrlException([String? messege]):super(messege , 'Invalid Url');
+}
+class FetchDataException extends AppException{
+  FetchDataException([String? messege]):super(messege , 'Failed to communicate');
 }
