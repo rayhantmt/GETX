@@ -26,12 +26,20 @@ throw InternetException('');
 }
 
 
+              
+
+
+
+
+
  @override
-  Future<dynamic> PostApi(dynamic data, String url)async{
-dynamic responseJson;
+  Future<dynamic> PostApi(var data, String url)async{
+   dynamic responseJson;
 
 try{
-final response=await http.get(Uri.parse(url)).timeout(Duration(seconds: 10));
+final response=await http.post(Uri.parse(url),
+  body: jsonEncode(data)
+  ).timeout(Duration(seconds: 10));
 
 responseJson=returnResponse(response);
 }
